@@ -130,3 +130,6 @@ dmypy.json
 
 # Test Files
 local_test.py
+
+# Scraped Data that we do not want to display
+linkedin_scraped/
