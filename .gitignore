@@ -131,5 +131,8 @@ dmypy.json
 # Test Files
 local_test.py
 
+# Personal Data
+my_secrets/
+
 # Scraped Data that we do not want to display
-linkedin_scraped/
+linkedin_scraped/*
