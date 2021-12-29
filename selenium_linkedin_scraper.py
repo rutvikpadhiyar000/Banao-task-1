@@ -9,11 +9,14 @@ import csv
 from careerguide import job_name_scrap
 
 # Comment out if not available
-from my_secrets.my_secrets import LINKEDIN_USERNAME, LINKEDIN_PASSWORD
+# from my_secrets.my_secrets import LINKEDIN_USERNAME, LINKEDIN_PASSWORD
 
 # Enter Linkedin username password here
-# LINKEDIN_USERNAME = ""
-# LINKEDIN_PASSWORD = ""
+LINKEDIN_USERNAME = ""
+LINKEDIN_PASSWORD = ""
+
+# For Manual login set it to True it will wait 60 seconds for login
+MANUAL_LOGIN = True
 
 
 def main():
@@ -130,10 +133,9 @@ def login_to_linkedin(driver, link) -> None:
     driver.get(link)
     time.sleep(2)
 
-    # Set to True for manual login
-    manual_login = True
+    global MANUAL_LOGIN
 
-    if manual_login:
+    if MANUAL_LOGIN:
         time.sleep(60)
         return
 
