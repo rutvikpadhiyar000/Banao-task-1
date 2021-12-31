@@ -128,6 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+############################################# MANUAL ENTRIES ########################################
+
 # Test Files
 local_test.py
 
