@@ -7,7 +7,7 @@ import json
 import csv
 
 # Local Imports
-import job_name_scrap
+from .job_name_scrap import get_jobs_dict
 
 # Comment out if not available
 # from my_secrets.my_secrets import LINKEDIN_USERNAME, LINKEDIN_PASSWORD
@@ -79,7 +79,7 @@ def get_job_names(filename: str = None) -> dict:
             return job_dict
 
     # if json file is not provided than get jobs from internet.
-    job_dict = job_name_scrap.get_jobs_dict()
+    job_dict = get_jobs_dict()
     return job_dict
 
 
@@ -189,15 +189,15 @@ def get_company_data(driver, link) -> list:
 
     try:
         company_desc = driver.find_element_by_css_selector(
-            "div > div.ph5.pb5 > div#ember66 "
+            "div > div.ph5.pb5 > div"
         ).text
     except Exception as e:
-        try:
-            company_desc = driver.find_element_by_css_selector(
-                "div > div.ph5.pb5 > div#ember64"
-            ).text
-        except Exception:
-            company_desc = "NA"
+        # try:
+        #     company_desc = driver.find_element_by_css_selector(
+        #         "div > div.ph5.pb5 > div#ember64"
+        #     ).text
+        # except Exception:
+        company_desc = "NA"
 
     # Get employee number from company employee string
     if company_employees != "NA":
